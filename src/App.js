@@ -1,11 +1,15 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import { Provider } from 'react-redux';
+import store from './store';
 import Header from './common/header';
 
 const App = () => (
-  <Fragment>
-    <Header />
-    <div style={{ height: 800 }} />
-  </Fragment>
+  <Provider store={store}>
+    <div>
+      <Header />
+      <div style={{ height: 500 }} />
+    </div>
+  </Provider>
 );
 
 export default App;
