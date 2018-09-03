@@ -4,23 +4,32 @@ import { fromJS } from 'immutable';
 // 返回一个immutable对象
 const defaultState = fromJS({
   focused: false,
-  list: []
+  mouseIn: false,
+  list: [],
+  current: 1,
+  total: 1
 });
 
 export default (state = defaultState, action) => {
-  if (action.type === constants.SEARCH_FOCUS) {
-    // immutable对象的set方法，会结合之前immutable对象的值和设置的值
-    // 返回一个全新的对象，不会修改原对象
-    return state.set('focused', true);
+  // immutable对象的set方法，会结合之前immutable对象的值和设置的值
+  // 返回一个全新的对象，不会修改原对象
+  switch (action.type) {
+    case constants.SEARCH_FOCUS:
+      return state.set('focused', true);
+    case constants.SEARCH_BLUR:
+      return state.set('focused', false);
+    case constants.MOUSE_ENTER:
+      return state.set('mouseIn', true);
+    case constants.MOUSE_LEAVE:
+      return state.set('mouseIn', false);
+    case constants.GET_SEARCH_LIST:
+      return state.merge({
+        list: action.data,
+        total: action.total
+      });
+    case constants.CHANGE_LIST:
+      return state.set('current', action.current);
+    default:
+      return state;
   }
-
-  if (action.type === constants.SEARCH_BLUR) {
-    return state.set('focused', false);
-  }
-
-  if (action.type === constants.GET_SEARCH_LIST) {
-    return state.set('list', action.data);
-  }
-
-  return state;
 };

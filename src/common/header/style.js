@@ -161,7 +161,7 @@ export const SearchInfo = styled.div`
     content: '';
   }
 
-  &.focused {
+  &.show {
     visibility: visible;
     opacity: 1;
   }
