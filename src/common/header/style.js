@@ -2,18 +2,21 @@ import styled from 'styled-components';
 import logoPic from '../../statics/logo.png';
 
 export const HeaderWarpper = styled.div`
-  position: relative;
   border-bottom: 1px solid #f0f0f0;
   height: 56px;
+`;
+
+export const HeaderContainer = styled.div`
+  position: relative;
+  margin: 0 auto;
+  min-width: 768px;
+  max-width: 1440px;
 `;
 
 export const Logo = styled.a.attrs({
   href: '/'
 })`
-  display: inline-block;
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100px;
   height: 100%;
   background: url(${logoPic});
@@ -31,24 +34,37 @@ export const NavItem = styled.div`
   font-size: 17px;
   color: #333;
   cursor: pointer;
+
   &.left {
     float: left;
     margin-right: 10px;
     line-height: 56px;
   }
+
   &.right {
     float: right;
     font-size: 15px;
     line-height: 57px;
     color: #969696;
+
     .icon-Aa {
       margin-right: 0.3em;
       font-size: 1.1em;
     }
   }
+
   &.active {
     color: #ea6f5a;
   }
+
+  &.hover:hover {
+    background: #f5f5f5;
+  }
+`;
+
+export const SearchWrapper = styled.div`
+  display: inline-block;
+  position: relative;
 `;
 
 export const NavSearch = styled.input.attrs({
@@ -64,27 +80,33 @@ export const NavSearch = styled.input.attrs({
   color: #333;
   background: #eee;
   outline: none;
+
   &::placeholder {
     color: #999;
   }
+
   &.focused {
     width: 240px;
   }
+
   &.slide-enter {
     transition: width 0.3s ease-in;
   }
+
   &.slide-enter-active {
     width: 240px;
   }
+
   &.slide-exit {
     transition: width 0.3s ease-out;
   }
+
   &.slide-exit-active {
     width: 160px;
   }
 `;
 
-export const SearchWrapper = styled.a`
+export const SearchIconWrapper = styled.a`
   display: inline-block;
   position: relative;
   right: 50px;
@@ -92,12 +114,7 @@ export const SearchWrapper = styled.a`
   height: 30px;
   text-align: center;
   cursor: pointer;
-  .icon-search {
-    width: 1em;
-    height: 1em;
-    color: #969696;
-    margin-top: 7px;
-  }
+
   &.focused {
     border-radius: 50%;
     background: #969696;
@@ -105,28 +122,36 @@ export const SearchWrapper = styled.a`
       color: #fff;
     }
   }
+
+  .icon-search {
+    width: 1em;
+    height: 1em;
+    color: #969696;
+    margin-top: 7px;
+  }
 `;
 
 export const SearchInfo = styled.div`
   visibility: hidden;
   position: absolute;
-  left: 388px;
-  border-bottom: 1px solid #f0f0f0;
+  left: 15px;
   border-radius: 4px;
-  padding: 20px 20px 10px;
   width: 250px;
   opacity: 0;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+
   &::before {
     position: absolute;
     top: -5px;
     left: 27px;
+    z-index: -1;
     width: 10px;
     height: 10px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
     transform: rotate(45deg);
     content: '';
   }
+
   &::after {
     position: absolute;
     bottom: 99%;
@@ -135,10 +160,17 @@ export const SearchInfo = styled.div`
     border-bottom-color: #fff;
     content: '';
   }
+
   &.focused {
     visibility: visible;
     opacity: 1;
   }
+`;
+
+export const SearchInfoWrapper = styled.div`
+  border-bottom: 1px solid #f0f0f0;
+  padding: 20px 20px 10px;
+  background: #fff;
 `;
 
 export const SearchInfoTitle = styled.div`
@@ -153,6 +185,7 @@ export const SearchInfoSwitch = styled.a`
   float: right;
   font-size: 13px;
   cursor: pointer;
+
   .icon-fresh {
     width: 1em;
     height: 1em;
@@ -168,6 +201,7 @@ export const SearchInfoItem = styled.li`
   display: inline-block;
   margin-right: 10px;
   line-height: 28px;
+
   a {
     border: 1px solid #ddd;
     border-radius: 3px;
@@ -175,6 +209,7 @@ export const SearchInfoItem = styled.li`
     font-size: 12px;
     color: #787878;
   }
+
   a:hover {
     border-color: #b4b4b4;
     color: #333;
@@ -190,12 +225,12 @@ export const Addition = styled.div`
 
 export const Button = styled.div`
   float: right;
-  border: 1px solid #ec6149b3;
+  border: 1px solid #ec6149;
   border-radius: 20px;
-  padding: 0 12px;
   font-size: 15px;
   text-align: center;
   cursor: pointer;
+
   &.writting {
     margin: 8px 15px 0;
     width: 100px;
@@ -207,10 +242,17 @@ export const Button = styled.div`
       margin-right: 0.2em;
     }
   }
+
   &.register {
     margin: 9px 5px 0 15px;
     width: 80px;
     line-height: 36px;
     color: #ea6f5a;
+  }
+
+  &.register:hover {
+    border-color: #ec6149;
+    color: #ec6149;
+    background-color: rgba(236, 97, 73, 0.05);
   }
 `;
