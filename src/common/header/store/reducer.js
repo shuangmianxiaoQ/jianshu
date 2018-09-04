@@ -5,6 +5,7 @@ import { fromJS } from 'immutable';
 const defaultState = fromJS({
   focused: false,
   mouseIn: false,
+  switched: false,
   list: [],
   current: 1,
   total: 1
@@ -29,6 +30,8 @@ export default (state = defaultState, action) => {
       });
     case constants.CHANGE_LIST:
       return state.set('current', action.current);
+    case constants.ICON_SPIN:
+      return state.set('switched', true);
     default:
       return state;
   }

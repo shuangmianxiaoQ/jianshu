@@ -24,6 +24,7 @@ import {
 const Header = ({
   focused,
   mouseIn,
+  switched,
   list,
   current,
   total,
@@ -34,20 +35,16 @@ const Header = ({
   handleChangeList
 }) => {
   const newList = list.toJS(); // list是immutable对象，先将其转化为普通的JS数组
-  const pageList = [];
+  let pageList = newList.slice((current - 1) * 10, current * 10);
 
   // 当Ajax异步请求获取到数据后，再进行渲染组件
   if (newList.length) {
-    for (let i = (current - 1) * 10; i < current * 10; i++) {
-      pageList.push(
-        <SearchInfoItem key={newList[i]}>
-          <a>{newList[i]}</a>
-        </SearchInfoItem>
-      );
-    }
+    pageList = pageList.map(item => (
+      <SearchInfoItem key={item}>
+        <a>{item}</a>
+      </SearchInfoItem>
+    ));
   }
-
-  console.log(pageList);
 
   return (
     <HeaderWarpper>
@@ -83,14 +80,20 @@ const Header = ({
               <SearchInfoWrapper>
                 <SearchInfoTitle>
                   热门搜索
-                  <SearchInfoSwitch
-                    onClick={() => handleChangeList(current, total)}
+                  <CSSTransition
+                    in={switched}
+                    timeout={3000}
+                    classNames="rotate"
                   >
-                    <svg className="icon icon-fresh" aria-hidden="true">
-                      <use xlinkHref="#icon-fresh" />
-                    </svg>
-                    换一批
-                  </SearchInfoSwitch>
+                    <SearchInfoSwitch
+                      onClick={() => handleChangeList(current, total)}
+                    >
+                      <svg className="icon icon-fresh" aria-hidden="true">
+                        <use xlinkHref="#icon-fresh" />
+                      </svg>
+                      换一批
+                    </SearchInfoSwitch>
+                  </CSSTransition>
                 </SearchInfoTitle>
                 <SearchInfoList>{pageList}</SearchInfoList>
               </SearchInfoWrapper>
@@ -114,6 +117,7 @@ const Header = ({
 const mapStateToProps = state => ({
   focused: state.getIn(['header', 'focused']),
   mouseIn: state.getIn(['header', 'mouseIn']),
+  switched: state.getIn(['header', 'switched']),
   list: state.getIn(['header', 'list']),
   current: state.getIn(['header', 'current']),
   total: state.getIn(['header', 'total'])
@@ -128,6 +132,7 @@ const mapDispatchToProps = dispatch => ({
   handleMouseIn: () => dispatch(actionCreators.mouseEnter()),
   handleMouseOut: () => dispatch(actionCreators.mouseLeave()),
   handleChangeList: (current, total) => {
+    dispatch(actionCreators.iconSpin());
     if (current < total) {
       dispatch(actionCreators.changeList(current + 1));
     } else {

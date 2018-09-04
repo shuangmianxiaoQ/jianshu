@@ -40,3 +40,7 @@ export const changeList = current => ({
   type: constants.CHANGE_LIST,
   current
 })
+
+export const iconSpin = () => ({
+  type: constants.ICON_SPIN
+}) 
