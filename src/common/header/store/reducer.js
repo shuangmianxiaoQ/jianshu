@@ -30,8 +30,6 @@ export default (state = defaultState, action) => {
       });
     case constants.CHANGE_LIST:
       return state.set('current', action.current);
-    case constants.ICON_SPIN:
-      return state.set('switched', true);
     default:
       return state;
   }

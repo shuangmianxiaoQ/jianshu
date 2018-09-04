@@ -24,7 +24,6 @@ import {
 const Header = ({
   focused,
   mouseIn,
-  switched,
   list,
   current,
   total,
@@ -63,7 +62,7 @@ const Header = ({
             <CSSTransition in={focused} timeout={300} classNames="slide">
               <NavSearch
                 className={focused ? 'focused' : ''}
-                onFocus={handleInputFocus}
+                onFocus={() => handleInputFocus(list)}
                 onBlur={handleInputBlur}
               />
             </CSSTransition>
@@ -80,20 +79,20 @@ const Header = ({
               <SearchInfoWrapper>
                 <SearchInfoTitle>
                   热门搜索
-                  <CSSTransition
-                    in={switched}
-                    timeout={3000}
-                    classNames="rotate"
+                  <SearchInfoSwitch
+                    onClick={() =>
+                      handleChangeList(current, total, this.spinIcon)
+                    }
                   >
-                    <SearchInfoSwitch
-                      onClick={() => handleChangeList(current, total)}
+                    <svg
+                      className="icon icon-fresh"
+                      aria-hidden="true"
+                      ref={icon => (this.spinIcon = icon)}
                     >
-                      <svg className="icon icon-fresh" aria-hidden="true">
-                        <use xlinkHref="#icon-fresh" />
-                      </svg>
-                      换一批
-                    </SearchInfoSwitch>
-                  </CSSTransition>
+                      <use xlinkHref="#icon-fresh" />
+                    </svg>
+                    换一批
+                  </SearchInfoSwitch>
                 </SearchInfoTitle>
                 <SearchInfoList>{pageList}</SearchInfoList>
               </SearchInfoWrapper>
@@ -117,22 +116,25 @@ const Header = ({
 const mapStateToProps = state => ({
   focused: state.getIn(['header', 'focused']),
   mouseIn: state.getIn(['header', 'mouseIn']),
-  switched: state.getIn(['header', 'switched']),
   list: state.getIn(['header', 'list']),
   current: state.getIn(['header', 'current']),
   total: state.getIn(['header', 'total'])
 });
 
 const mapDispatchToProps = dispatch => ({
-  handleInputFocus: () => {
-    dispatch(actionCreators.getSearchList());
+  handleInputFocus: list => {
+    // 当list中没有数据时，发送请求获取数据，避免无意义的数据请求
+    list.size === 0 && dispatch(actionCreators.getSearchList());
     dispatch(actionCreators.searchFocus());
   },
   handleInputBlur: () => dispatch(actionCreators.searchBlur()),
   handleMouseIn: () => dispatch(actionCreators.mouseEnter()),
   handleMouseOut: () => dispatch(actionCreators.mouseLeave()),
-  handleChangeList: (current, total) => {
-    dispatch(actionCreators.iconSpin());
+  handleChangeList: (current, total, spin) => {
+    // 获取DOM节点样式上的transform属性的数值
+    let originAngle = spin.style.transform.replace(/[^0-9]/gi, '');
+    originAngle = originAngle ? parseInt(originAngle, 10) : 0;
+    spin.style.transform = `rotate(${originAngle + 360}deg)`;
     if (current < total) {
       dispatch(actionCreators.changeList(current + 1));
     } else {

@@ -132,12 +132,12 @@ export const SearchIconWrapper = styled.a`
 `;
 
 export const SearchInfo = styled.div`
-  /* visibility: hidden; */
+  visibility: hidden;
   position: absolute;
   left: 15px;
   border-radius: 4px;
   width: 250px;
-  /* opacity: 0; */
+  opacity: 0;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
 
   &::before {
@@ -194,22 +194,7 @@ export const SearchInfoSwitch = styled.a`
     width: 1em;
     height: 1em;
     margin-right: 0.2em;
-  }
-
-  &.rotate-enter {
-    transition: all 3s linear;
-  }
-
-  &.rotate-enter-active {
-    width: 2em;
-  }
-
-  &.rotate-exit {
-    transition: all 3s linear;
-  }
-
-  &.rotate-exit-active {
-    width: 0.5em;
+    transition: all 0.3s linear;
   }
 `;
 
