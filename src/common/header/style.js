@@ -2,8 +2,11 @@ import styled from 'styled-components';
 import logoPic from '../../statics/logo.png';
 
 export const HeaderWarpper = styled.div`
+  position: sticky;
+  top: 0;
   border-bottom: 1px solid #f0f0f0;
   height: 56px;
+  background: #fff;
 `;
 
 export const HeaderContainer = styled.div`
