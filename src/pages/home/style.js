@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import bannerImg from '../../statics/banner/banner_02.jpg';
 
 export const HomeWarpper = styled.div`
   margin: 0 auto;
@@ -19,7 +18,7 @@ export const Carousel = styled.div`
 `;
 
 export const Banner = styled.img.attrs({
-  src: bannerImg
+  src: 'statics/banner/banner_02.jpg'
 })`
   border-radius: 6px;
   width: 100%;
@@ -45,6 +44,7 @@ export const TopicItem = styled.a`
   min-height: 32px;
   color: #333;
   background: #f7f7f7;
+  cursor: pointer;
 
   img {
     width: 32px;

@@ -1,0 +1,1 @@
+export const TOPIC_LIST = 'home/topic_list';

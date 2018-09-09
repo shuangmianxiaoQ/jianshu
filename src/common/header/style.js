@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import logoPic from '../../statics/logo.png';
+import logoPic from '../../assets/logo.png';
 
 export const HeaderWarpper = styled.div`
   position: sticky;
