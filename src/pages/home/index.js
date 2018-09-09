@@ -1,7 +1,7 @@
 import React from 'react';
 import { HomeWarpper, HomeMain, HomeAside, Banner, Carousel } from './style';
 import Topic from './components/topic';
-import List from './components/list';
+import Article from './components/article';
 import Board from './components/board';
 import Authors from './components/authors';
 
@@ -12,7 +12,7 @@ const Home = () => (
         <Banner />
       </Carousel>
       <Topic />
-      <List />
+      <Article />
     </HomeMain>
     <HomeAside>
       <Board />

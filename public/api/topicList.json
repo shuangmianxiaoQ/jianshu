@@ -2,36 +2,36 @@
   {
     "id": "1",
     "name": "自然科普",
-    "href": "statics/topic/topic_01.jpg"
+    "imgUrl": "statics/topic/topic_01.jpg"
   },
   {
     "id": "2",
     "name": "故事",
-    "href": "statics/topic/topic_02.jpg"
+    "imgUrl": "statics/topic/topic_02.jpg"
   },
   {
     "id": "3",
     "name": "旅行·在路上",
-    "href": "statics/topic/topic_03.jpg"
+    "imgUrl": "statics/topic/topic_03.jpg"
   },
   {
     "id": "4",
     "name": "读书",
-    "href": "statics/topic/topic_04.jpg"
+    "imgUrl": "statics/topic/topic_04.jpg"
   },
   {
     "id": "5",
     "name": "手绘",
-    "href": "statics/topic/topic_05.jpg"
+    "imgUrl": "statics/topic/topic_05.jpg"
   },
   {
     "id": "6",
     "name": "摄影",
-    "href": "statics/topic/topic_06.jpg"
+    "imgUrl": "statics/topic/topic_06.jpg"
   },
   {
     "id": "7",
-    "name": "简书电影",
-    "href": "statics/topic/topic_07.jpg"
+    "name": "@IT·互联网",
+    "imgUrl": "statics/topic/topic_07.jpg"
   }
 ]

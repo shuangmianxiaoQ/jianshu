@@ -34,6 +34,7 @@ export const HomeAside = styled.div`
 export const TopicWrapper = styled.div`
   margin-bottom: 20px;
   border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 9px;
 `;
 
 export const TopicItem = styled.a`
@@ -65,5 +66,42 @@ export const TopicItem = styled.a`
     span {
       padding: 0;
     }
+
+    .icon-right {
+      margin-left: 0.1em;
+      width: 0.8em;
+      height: 1em;
+    }
   }
+`;
+
+export const ArticleItem = styled.div`
+  border-bottom: 1px solid #f0f0f0;
+  padding: 15px 2px 20px 0;
+  min-height: 140px;
+`;
+
+export const ArticleContent = styled.div``;
+
+export const ArticleTitle = styled.a`
+  margin-bottom: 3px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5em;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:visited {
+    color: #969696;
+  }
+`;
+
+export const ArticleAbstract = styled.p`
+  margin-bottom: 8px;
+  font-size: 13px;
+  line-height: 24px;
+  color: #999;
 `;

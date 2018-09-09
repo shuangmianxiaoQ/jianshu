@@ -9,14 +9,17 @@ class Topic extends Component {
 
     return (
       <TopicWrapper>
-        {topicList.toJS().map(item => (
-          <TopicItem key={item.id}>
-            <img src={item.href} alt="64" />
-            <span>{item.name}</span>
+        {topicList.map(item => (
+          <TopicItem key={item.get('id')}>
+            <img src={item.get('imgUrl')} alt="64" />
+            <span>{item.get('name')}</span>
           </TopicItem>
         ))}
         <TopicItem className="more-hot">
           <span>更多热门专题</span>
+          <svg className="icon icon-right" aria-hidden="true">
+              <use xlinkHref="#icon-right" />
+            </svg>
         </TopicItem>
       </TopicWrapper>
     );
