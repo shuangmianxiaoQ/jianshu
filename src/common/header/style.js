@@ -7,6 +7,7 @@ export const HeaderWarpper = styled.div`
   border-bottom: 1px solid #f0f0f0;
   height: 56px;
   background: #fff;
+  z-index: 100;
 `;
 
 export const HeaderContainer = styled.div`

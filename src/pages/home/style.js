@@ -32,7 +32,7 @@ export const HomeAside = styled.div`
 `;
 
 export const TopicWrapper = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   border-bottom: 1px solid #f0f0f0;
   padding-bottom: 9px;
 `;
@@ -77,19 +77,14 @@ export const TopicItem = styled.a`
 
 export const ArticleItem = styled.div`
   position: relative;
+  margin-bottom: 8px;
   border-bottom: 1px solid #f0f0f0;
-  padding: 3px 140px 2px 0;
+  padding: 16px 2px 20px;
+  padding-right: 140px;
   min-height: 130px;
 
-  img {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    margin-top: -60px;
-    border: 1px solid #f0f0f0;
-    border-radius: 4px;
-    width: 125px;
-    height: 100px;
+  &.no-spacing {
+    padding-right: 0;
   }
 `;
 
@@ -151,4 +146,19 @@ export const MetaIcon = styled.span`
   .icon-comments:hover {
     color: #787878;
   }
+`;
+
+export const ArticleImg = styled.img.attrs({
+  src: props => props.imgUrl,
+  alt: '120'
+})`
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: -54px;
+  border: 1px solid #f0f0f0;
+  border-radius: 4px;
+  width: 125px;
+  height: 100px;
+  cursor: pointer;
 `;

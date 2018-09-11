@@ -6,37 +6,38 @@ import {
   ArticleAbstract,
   ArticleMeta,
   MetaNickname,
-  MetaIcon
+  MetaIcon,
+  ArticleImg
 } from '../style';
 import { actionCreators } from '../store';
 
 class Article extends Component {
   render() {
     const { articleList } = this.props;
+    const list = articleList.toJS();
+
     return (
       <div>
-        {articleList.map(item => (
-          <ArticleItem>
-            <ArticleTitle>{item.get('title')}</ArticleTitle>
-            <ArticleAbstract>
-              对于我来说，睡前是每天碎片时间中最大的一块，为了不辜负睡前时光，我常常会在这段时间阅读一些有价值的内容。那么问题来了，什么样的枕边书适合睡前阅读？
-            </ArticleAbstract>
+        {list.map(({ id, title, abstract, meta, imgUrl }) => (
+          <ArticleItem key={id} className={imgUrl ? '' : 'no-spacing'}>
+            <ArticleTitle>{title}</ArticleTitle>
+            <ArticleAbstract>{abstract}</ArticleAbstract>
             <ArticleMeta>
-              <MetaNickname>精读君</MetaNickname>
+              <MetaNickname>{meta.nickname}</MetaNickname>
               <MetaIcon className="comments">
                 <svg className="icon icon-comments" aria-hidden="true">
                   <use xlinkHref="#icon-comments" />
                 </svg>
-                3
+                {meta.comments_count}
               </MetaIcon>
               <MetaIcon>
                 <svg className="icon icon-heart" aria-hidden="true">
                   <use xlinkHref="#icon-heart" />
                 </svg>
-                20
+                {meta.heart_count}
               </MetaIcon>
             </ArticleMeta>
-            <img src="statics/article/article_01.jpg" alt="120" />
+            {imgUrl ? <ArticleImg imgUrl={imgUrl} /> : null}
           </ArticleItem>
         ))}
       </div>
