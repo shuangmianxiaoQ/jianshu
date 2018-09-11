@@ -76,14 +76,27 @@ export const TopicItem = styled.a`
 `;
 
 export const ArticleItem = styled.div`
+  position: relative;
   border-bottom: 1px solid #f0f0f0;
-  padding: 15px 2px 20px 0;
-  min-height: 140px;
+  padding: 3px 140px 2px 0;
+  min-height: 130px;
+
+  img {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    margin-top: -60px;
+    border: 1px solid #f0f0f0;
+    border-radius: 4px;
+    width: 125px;
+    height: 100px;
+  }
 `;
 
 export const ArticleContent = styled.div``;
 
 export const ArticleTitle = styled.a`
+  display: block;
   margin-bottom: 3px;
   font-size: 18px;
   font-weight: 700;
@@ -104,4 +117,38 @@ export const ArticleAbstract = styled.p`
   font-size: 13px;
   line-height: 24px;
   color: #999;
+`;
+
+export const ArticleMeta = styled.div`
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #b4b4b4;
+
+  a,
+  span {
+    margin-right: 10px;
+  }
+`;
+
+export const MetaNickname = styled.a`
+  cursor: pointer;
+
+  &:hover {
+    color: #787878;
+  }
+`;
+
+export const MetaIcon = styled.span`
+  .icon {
+    margin: 2px 2px 0 0;
+  }
+
+  .icon-comments {
+    cursor: pointer;
+  }
+
+  .icon-comments:hover {
+    color: #787878;
+  }
 `;

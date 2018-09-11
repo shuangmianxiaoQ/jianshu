@@ -18,8 +18,8 @@ class Topic extends Component {
         <TopicItem className="more-hot">
           <span>更多热门专题</span>
           <svg className="icon icon-right" aria-hidden="true">
-              <use xlinkHref="#icon-right" />
-            </svg>
+            <use xlinkHref="#icon-right" />
+          </svg>
         </TopicItem>
       </TopicWrapper>
     );
