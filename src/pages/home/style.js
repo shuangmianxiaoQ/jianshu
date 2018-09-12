@@ -3,7 +3,12 @@ import styled from 'styled-components';
 export const HomeWarpper = styled.div`
   margin: 0 auto;
   width: 960px;
-  height: 900px;
+
+  &::after {
+    display: block;
+    clear: both;
+    content: '';
+  }
 `;
 
 export const HomeMain = styled.div`
@@ -12,17 +17,15 @@ export const HomeMain = styled.div`
   width: 640px;
 `;
 
-export const Carousel = styled.div`
+export const CarouselWrapper = styled.div`
   margin-bottom: 35px;
   height: 270px;
-`;
 
-export const Banner = styled.img.attrs({
-  src: 'statics/banner/banner_02.jpg'
-})`
-  border-radius: 6px;
-  width: 100%;
-  height: 100%;
+  img {
+    border-radius: 6px;
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const HomeAside = styled.div`
@@ -69,7 +72,7 @@ export const TopicItem = styled.a`
 
     .icon-right {
       margin-left: 0.1em;
-      width: 0.8em;
+      width: 1.1em;
       height: 1em;
     }
   }
@@ -150,7 +153,7 @@ export const MetaIcon = styled.span`
 
 export const ArticleImg = styled.img.attrs({
   src: props => props.imgUrl,
-  alt: '120'
+  alt: props => props.imgId
 })`
   position: absolute;
   top: 50%;
@@ -161,4 +164,93 @@ export const ArticleImg = styled.img.attrs({
   width: 125px;
   height: 100px;
   cursor: pointer;
+`;
+
+export const BoardWrapper = styled.div`
+  margin-top: -5px;
+  min-height: 228px;
+  padding-bottom: 4px;
+`;
+
+export const BoardItem = styled.img.attrs({
+  src: props => props.imgUrl,
+  alt: props => props.imgId
+})`
+  margin-bottom: 3px;
+  border-radius: 4px;
+  width: 100%;
+  min-height: 50px;
+`;
+
+export const DownloadWrapper = styled.div`
+  position: relative;
+  margin-bottom: 30px;
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  padding: 10px 22px;
+  cursor: pointer;
+
+  img {
+    width: 60px;
+    height: 60px;
+    vertical-align: middle;
+    opacity: 0.8;
+  }
+`;
+
+export const DownloadInfo = styled.div`
+  display: inline-block;
+  margin-left: 12px;
+  vertical-align: middle;
+`;
+
+export const DownloadTitle = styled.div`
+  position: relative;
+  font-size: 15px;
+  color: #333;
+
+  .icon-right {
+    position: absolute;
+    margin-left: 0.1em;
+  }
+`;
+
+export const DownloadDescription = styled.div`
+  margin-top: 9px;
+  font-size: 13px;
+  color: #999;
+`;
+
+export const DownloadPopover = styled.div`
+  position: absolute;
+  top: -195px;
+  left: 48px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  padding: 1px;
+  max-width: 276px;
+  background: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+`;
+
+export const PopoverArrow = styled.div`
+  position: absolute;
+  top: 193px;
+  left: 80px;
+
+  &::after {
+    content: '';
+    border-width: 10px 10px 0;
+    border-style: solid;
+    border-color: #fff transparent transparent;
+  }
+`;
+
+export const PopoverContent = styled.div`
+  padding: 10px;
+
+  img {
+    width: 160px;
+    height: 160px;
+  }
 `;

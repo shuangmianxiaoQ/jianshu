@@ -2,16 +2,23 @@ import { fromJS } from 'immutable';
 import { constants } from './index';
 
 const defaultState = fromJS({
+  isShowQRCode: false,
   topicList: [],
-  articleList: []
+  articleList: [],
+  boardList: [],
+  authorList: []
 });
 
 export default (state = defaultState, action) => {
   switch (action.type) {
-    case constants.TOPIC_LIST:
-      return state.set('topicList', action.data);
-    case constants.ARTICLE_LIST:
-      return state.set('articleList', action.data);
+    case constants.HOME_INFO:
+      return state.merge({
+        topicList: action.data.get('topicList'),
+        articleList: action.data.get('articleList'),
+        boardList: action.data.get('boardList')
+      });
+    case constants.SHOW_QR_CODE_STATUS:
+      return state.set('isShowQRCode', !action.data)
     default:
       return state;
   }

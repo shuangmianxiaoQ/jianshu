@@ -1,24 +1,43 @@
-import React from 'react';
-import { HomeWarpper, HomeMain, HomeAside, Banner, Carousel } from './style';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { actionCreators } from './store';
+import { HomeWarpper, HomeMain, HomeAside } from './style';
+import Carousel from './components/carousel';
 import Topic from './components/topic';
 import Article from './components/article';
 import Board from './components/board';
+import Download from './components/download';
 import Authors from './components/authors';
 
-const Home = () => (
-  <HomeWarpper>
-    <HomeMain>
-      <Carousel>
-        <Banner />
-      </Carousel>
-      <Topic />
-      <Article />
-    </HomeMain>
-    <HomeAside>
-      <Board />
-      <Authors />
-    </HomeAside>
-  </HomeWarpper>
-);
+class Home extends Component {
+  render() {
+    return (
+      <HomeWarpper>
+        <HomeMain>
+          <Carousel />
+          <Topic />
+          <Article />
+        </HomeMain>
+        <HomeAside>
+          <Board />
+          <Download />
+          <Authors />
+        </HomeAside>
+      </HomeWarpper>
+    );
+  }
 
-export default Home;
+  componentDidMount() {
+    const { initHomeData } = this.props;
+    initHomeData();
+  }
+}
+
+const mapDispatchToProps = dispatch => ({
+  initHomeData: () => dispatch(actionCreators.getHomeInfo())
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Home);

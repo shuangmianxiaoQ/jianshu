@@ -2,33 +2,21 @@ import axios from 'axios';
 import { fromJS } from 'immutable';
 import { constants } from './index';
 
-const topicList = data => ({
-  type: constants.TOPIC_LIST,
+const homeInfo = data => ({
+  type: constants.HOME_INFO,
   data: fromJS(data)
 });
 
-const articleList = data => ({
-  type: constants.ARTICLE_LIST,
+export const getHomeInfo = () => {
+  return dispatch => {
+    axios
+      .get('api/homeInfo.json')
+      .then(res => dispatch(homeInfo(res.data)))
+      .catch(() => console.log('获取接口失败'));
+  };
+};
+
+export const changeShowQRCodeStatus = data => ({
+  type: constants.SHOW_QR_CODE_STATUS,
   data: fromJS(data)
 })
-
-export const getTopicList = () => {
-  return dispatch => {
-    axios
-      .get('api/topicList.json')
-      .then(res => {
-        const data = res.data;
-        dispatch(topicList(data));
-      })
-      .catch(() => console.log('获取接口失败'));
-  };
-};
-
-export const getArticleList = () => {
-  return dispatch => {
-    axios
-      .get('api/articleList.json')
-      .then(res => dispatch(articleList(res.data)))
-      .catch(() => console.log('获取接口失败'));
-  };
-};
