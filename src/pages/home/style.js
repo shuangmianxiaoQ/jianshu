@@ -254,3 +254,77 @@ export const PopoverContent = styled.div`
     height: 160px;
   }
 `;
+
+export const AuthorWrapper = styled.div``;
+
+export const AuthorTitle = styled.div`
+  margin: 32px 0 18px;
+  font-size: 14px;
+  color: #969696;
+
+  a {
+    float: right;
+    cursor: pointer;
+  }
+
+  .icon-fresh {
+    width: 0.95em;
+    height: 0.95em;
+    margin-right: 0.3em;
+  }
+`;
+
+export const AuthorItem = styled.div`
+  margin-top: 8px;
+  line-height: 20px;
+`;
+
+export const AuthorAvatar = styled.img.attrs({
+  src: props => props.avatarSource,
+  alt: props => props.avatarId
+})`
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+`;
+
+export const AuthorInfo = styled.div`
+  display: inline-block;
+  position: relative;
+  top: -7px;
+`;
+
+export const AuthorName = styled.a`
+  margin-right: 60px;
+  padding-top: 5px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+`;
+
+export const AuthorAbstract = styled.p`
+  margin-top: 2px;
+  font-size: 12px;
+  color: #969696;
+`;
+
+export const FollowAuthor = styled.a`
+  float: right;
+  margin-top: 5px;
+  font-size: 13px;
+  color: #42c02e;
+  cursor: pointer;
+
+  .icon-add {
+    position: relative;
+    top: -1px;
+    width: 0.95em;
+    height: 0.95em;
+    margin-right: 0.05em;
+  }
+`;
+
+export const AllAuthor = styled.button``;

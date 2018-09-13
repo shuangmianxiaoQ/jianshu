@@ -7,7 +7,7 @@ import Topic from './components/topic';
 import Article from './components/article';
 import Board from './components/board';
 import Download from './components/download';
-import Authors from './components/authors';
+import Author from './components/author';
 
 class Home extends Component {
   render() {
@@ -21,7 +21,7 @@ class Home extends Component {
         <HomeAside>
           <Board />
           <Download />
-          <Authors />
+          <Author />
         </HomeAside>
       </HomeWarpper>
     );

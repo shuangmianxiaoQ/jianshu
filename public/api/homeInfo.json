@@ -114,5 +114,47 @@
       "id": "5",
       "imgUrl": "statics/board/board_05.png"
     }
+  ],
+  "authorList": [
+    {
+      "id": 1,
+      "nickname": "道长是名思维贩子",
+      "avatar_source": "statics/avatar/avatar_01.webp",
+      "total_likes_count": 45180,
+      "total_wordage": 187328,
+      "is_following_user": false
+    },
+    {
+      "id": 2,
+      "nickname": "无限猴子",
+      "avatar_source": "statics/avatar/avatar_02.webp",
+      "total_likes_count": 173,
+      "total_wordage": 53754,
+      "is_following_user": false
+    },
+    {
+      "id": 3,
+      "nickname": "王茯苓",
+      "avatar_source": "statics/avatar/avatar_03.webp",
+      "total_likes_count": 14362,
+      "total_wordage": 505622,
+      "is_following_user": false
+    },
+    {
+      "id": 4,
+      "nickname": "王老师八卦美术史",
+      "avatar_source": "statics/avatar/avatar_04.webp",
+      "total_likes_count": 789,
+      "total_wordage": 132447,
+      "is_following_user": false
+    },
+    {
+      "id": 5,
+      "nickname": "红瑀",
+      "avatar_source": "statics/avatar/avatar_05.webp",
+      "total_likes_count": 10606,
+      "total_wordage": 320649,
+      "is_following_user": false
+    }
   ]
 }
