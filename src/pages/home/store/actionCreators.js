@@ -1,10 +1,16 @@
 import axios from 'axios';
-import { fromJS } from 'immutable';
+import { fromJS, List } from 'immutable';
 import { constants } from './index';
 
 const homeInfo = data => ({
   type: constants.HOME_INFO,
   data: fromJS(data)
+});
+
+const moreArticle = (data, nextPage) => ({
+  type: constants.MORE_ARTICLE,
+  data: fromJS(data),
+  nextPage
 });
 
 export const getHomeInfo = () => {
@@ -16,7 +22,16 @@ export const getHomeInfo = () => {
   };
 };
 
+export const getMoreArticleList = page => {
+  return dispatch => {
+    axios
+      .get('/api/moreArticle.json?page=' + page)
+      .then(res => dispatch(moreArticle(res.data, page + 1)))
+      .catch(() => console.log('获取接口失败'));
+  };
+};
+
 export const changeShowQRCodeStatus = data => ({
   type: constants.SHOW_QR_CODE_STATUS,
   data: fromJS(data)
-})
+});

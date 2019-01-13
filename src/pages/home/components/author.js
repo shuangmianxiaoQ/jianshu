@@ -13,7 +13,6 @@ import {
 
 const Author = ({ authorList }) => {
   const list = authorList.toJS();
-  console.log(list);
 
   return (
     <AuthorWrapper>

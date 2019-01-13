@@ -6,7 +6,8 @@ const defaultState = fromJS({
   topicList: [],
   articleList: [],
   boardList: [],
-  authorList: []
+  authorList: [],
+  articlePage: 1
 });
 
 export default (state = defaultState, action) => {
@@ -18,8 +19,13 @@ export default (state = defaultState, action) => {
         boardList: action.data.get('boardList'),
         authorList: action.data.get('authorList')
       });
+    case constants.MORE_ARTICLE:
+      return state.merge({
+        articleList: state.get('articleList').concat(action.data),
+        articlePage: action.nextPage
+      });
     case constants.SHOW_QR_CODE_STATUS:
-      return state.set('isShowQRCode', !action.data)
+      return state.set('isShowQRCode', !action.data);
     default:
       return state;
   }

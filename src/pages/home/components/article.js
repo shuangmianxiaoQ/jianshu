@@ -7,16 +7,19 @@ import {
   ArticleMeta,
   MetaNickname,
   MetaIcon,
-  ArticleImg
+  ArticleImg,
+  LoadMore
 } from '../style';
 
-const Article = ({ articleList }) => {
+import { actionCreators } from '../store';
+
+const Article = ({ articleList, articlePage, loadMoreArticlList }) => {
   const list = articleList.toJS();
 
   return (
     <Fragment>
-      {list.map(({ id, title, abstract, meta, imgUrl }) => (
-        <ArticleItem key={id} className={imgUrl ? '' : 'no-spacing'}>
+      {list.map(({ id, title, abstract, meta, imgUrl }, index) => (
+        <ArticleItem key={index} className={imgUrl ? '' : 'no-spacing'}>
           <ArticleTitle>{title}</ArticleTitle>
           <ArticleAbstract>{abstract}</ArticleAbstract>
           <ArticleMeta>
@@ -37,15 +40,23 @@ const Article = ({ articleList }) => {
           {imgUrl ? <ArticleImg imgUrl={imgUrl} imgId={id} /> : null}
         </ArticleItem>
       ))}
+      <LoadMore onClick={() => loadMoreArticlList(articlePage)}>
+        阅读更多
+      </LoadMore>
     </Fragment>
   );
 };
 
 const mapStateToProps = state => ({
-  articleList: state.getIn(['home', 'articleList'])
+  articleList: state.getIn(['home', 'articleList']),
+  articlePage: state.getIn(['home', 'articlePage'])
+});
+
+const mapDispatchToProps = dispatch => ({
+  loadMoreArticlList: page => dispatch(actionCreators.getMoreArticleList(page))
 });
 
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(Article);

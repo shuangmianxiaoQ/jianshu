@@ -166,6 +166,21 @@ export const ArticleImg = styled.img.attrs({
   cursor: pointer;
 `;
 
+export const LoadMore = styled.a`
+  display: block;
+  margin: 30px auto 60px;
+  padding: 10px 15px;
+  width: 100%;
+  height: 40px;
+  line-height: 20px;
+  background-color: #a5a5a5;
+  text-align: center;
+  font-size: 15px;
+  color: #fff;
+  border-radius: 20px;
+  cursor: pointer;
+`;
+
 export const BoardWrapper = styled.div`
   margin-top: -5px;
   min-height: 228px;
