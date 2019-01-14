@@ -8,15 +8,13 @@ import Detail from './pages/detail';
 
 const App = () => (
   <Provider store={store}>
-    <div>
-      <Header />
-      <Router>
-        <Fragment>
-          <Route exact path="/" component={Home} />
-          <Route path="/detail" component={Detail} />
-        </Fragment>
-      </Router>
-    </div>
+    <Router>
+      <Fragment>
+        <Header />
+        <Route exact path="/" component={Home} />
+        <Route path="/detail" component={Detail} />
+      </Fragment>
+    </Router>
   </Provider>
 );
 

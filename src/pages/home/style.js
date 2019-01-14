@@ -34,6 +34,26 @@ export const HomeAside = styled.div`
   width: 280px;
 `;
 
+export const BackTop = styled.a`
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 100;
+  display: block;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #dcdcdc;
+  text-align: center;
+  cursor: pointer;
+
+  .icon-up {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+`;
+
 export const TopicWrapper = styled.div`
   margin-bottom: 10px;
   border-bottom: 1px solid #f0f0f0;
@@ -89,16 +109,19 @@ export const ArticleItem = styled.div`
   &.no-spacing {
     padding-right: 0;
   }
+
+  a {
+    text-decoration: none;
+  }
 `;
 
-export const ArticleContent = styled.div``;
-
-export const ArticleTitle = styled.a`
+export const ArticleTitle = styled.span`
   display: block;
   margin-bottom: 3px;
   font-size: 18px;
   font-weight: 700;
   line-height: 1.5em;
+  color: #000;
   cursor: pointer;
 
   &:hover {

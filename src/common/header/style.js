@@ -17,9 +17,7 @@ export const HeaderContainer = styled.div`
   max-width: 1440px;
 `;
 
-export const Logo = styled.a.attrs({
-  href: '/'
-})`
+export const Logo = styled.div`
   position: absolute;
   width: 100px;
   height: 100%;

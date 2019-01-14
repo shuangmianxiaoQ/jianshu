@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import {
   ArticleItem,
   ArticleTitle,
@@ -20,7 +21,9 @@ const Article = ({ articleList, articlePage, loadMoreArticlList }) => {
     <Fragment>
       {list.map(({ id, title, abstract, meta, imgUrl }, index) => (
         <ArticleItem key={index} className={imgUrl ? '' : 'no-spacing'}>
-          <ArticleTitle>{title}</ArticleTitle>
+          <Link to="/detail">
+            <ArticleTitle>{title}</ArticleTitle>
+          </Link>
           <ArticleAbstract>{abstract}</ArticleAbstract>
           <ArticleMeta>
             <MetaNickname>{meta.nickname}</MetaNickname>

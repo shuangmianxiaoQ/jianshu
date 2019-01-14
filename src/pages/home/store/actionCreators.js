@@ -35,3 +35,8 @@ export const changeShowQRCodeStatus = data => ({
   type: constants.SHOW_QR_CODE_STATUS,
   data: fromJS(data)
 });
+
+export const toogleScrollTopShow = show => ({
+  type: constants.SHOW_SCROLL_TOP,
+  show: fromJS(show)
+});

@@ -7,7 +7,8 @@ const defaultState = fromJS({
   articleList: [],
   boardList: [],
   authorList: [],
-  articlePage: 1
+  articlePage: 1,
+  isShowScrollTop: false
 });
 
 export default (state = defaultState, action) => {
@@ -26,6 +27,8 @@ export default (state = defaultState, action) => {
       });
     case constants.SHOW_QR_CODE_STATUS:
       return state.set('isShowQRCode', !action.data);
+    case constants.SHOW_SCROLL_TOP:
+      return state.set('isShowScrollTop', action.show);
     default:
       return state;
   }
