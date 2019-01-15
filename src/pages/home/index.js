@@ -1,7 +1,8 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { actionCreators } from './store';
 import { HomeWarpper, HomeMain, HomeAside, BackTop } from './style';
+import Header from '../../common/header';
 import Carousel from './components/carousel';
 import Topic from './components/topic';
 import Article from './components/article';
@@ -28,28 +29,30 @@ class Home extends PureComponent {
 
   render() {
     const { isShowScrollTop } = this.props;
-    console.log(isShowScrollTop);
 
     return (
-      <HomeWarpper>
-        <HomeMain>
-          <Carousel />
-          <Topic />
-          <Article />
-        </HomeMain>
-        <HomeAside>
-          <Board />
-          <Download />
-          <Author />
-        </HomeAside>
-        {isShowScrollTop ? (
-          <BackTop onClick={this.handleScrollTop}>
-            <svg className="icon icon-up" aria-hidden="true">
-              <use xlinkHref="#icon-up" />
-            </svg>
-          </BackTop>
-        ) : null}
-      </HomeWarpper>
+      <Fragment>
+        <Header />
+        <HomeWarpper>
+          <HomeMain>
+            <Carousel />
+            <Topic />
+            <Article />
+          </HomeMain>
+          <HomeAside>
+            <Board />
+            <Download />
+            <Author />
+          </HomeAside>
+          {isShowScrollTop ? (
+            <BackTop onClick={this.handleScrollTop}>
+              <svg className="icon icon-up" aria-hidden="true">
+                <use xlinkHref="#icon-up" />
+              </svg>
+            </BackTop>
+          ) : null}
+        </HomeWarpper>
+      </Fragment>
     );
   }
 }

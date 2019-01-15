@@ -21,7 +21,7 @@ const Article = ({ articleList, articlePage, loadMoreArticlList }) => {
     <Fragment>
       {list.map(({ id, title, abstract, meta, imgUrl }, index) => (
         <ArticleItem key={index} className={imgUrl ? '' : 'no-spacing'}>
-          <Link to="/detail">
+          <Link to={`/detail/${index + 1}`}>
             <ArticleTitle>{title}</ArticleTitle>
           </Link>
           <ArticleAbstract>{abstract}</ArticleAbstract>
