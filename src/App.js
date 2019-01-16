@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import store from './store';
 import Home from './pages/home';
 import Login from './pages/login';
-import Detail from './pages/detail';
+import Detail from './pages/detail/loadable';
 
 const App = () => (
   <Provider store={store}>

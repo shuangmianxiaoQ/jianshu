@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import Header from '../../common/header';
 
 const Detail = ({ match }) => {
@@ -11,4 +12,4 @@ const Detail = ({ match }) => {
   );
 };
 
-export default Detail;
+export default withRouter(Detail);

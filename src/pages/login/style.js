@@ -18,6 +18,22 @@ export const LoginForm = styled.div`
   display: inline-block;
 `;
 
+export const Input = styled.input`
+  width: 100%;
+  height: 50px;
+  margin-bottom: 0;
+  padding: 4px 12px 4px 20px;
+  border: 1px solid #c8c8c8;
+  border-radius: 0 0 4px 4px;
+  background-color: hsla(0, 0%, 71%, 0.1);
+  outline: none;
+
+  &.account {
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+  }
+`;
+
 export const UsernameFormItem = styled.div`
   .username {
     width: 100%;
